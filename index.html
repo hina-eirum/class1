@@ -1,20 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<h1>Table of 2</h1>
-<div id="table">
-    
-</div>
-<script >
-    for (var i=1 ; i<=10 ; i++){ 
-    var p= document.createElement('h1')
-    p.innerText = "2 * " +i+ "=" + 2*i
-    document.getElementById("table").appendChild(p)}
-</script>    
-</body>
+<html>
+    <head>
+        <title>my first web</title>
+    </head>
+    <body>
+        
+            <h3> 1. Absolute URL :</h3>
+        <dd> it starts with anchor tag [a] wchich keeps connected {create a link} with any website we want.</dd>
+        <a href="http://facebook.com">Facebook</a>
+
+        <h3> 2. Relative URL :</h3>
+        <dd> it is "page to page" interconnected. like a file having Home page, Contact us, About us,etc</dd>
+        <a href="contact.html"> Contact us </a>
+        <br>
+        
+        
+        <h2>Tables and Forms</h2>
+        <table border=1px >            
+            <tr> <th bgcolor="orange">monday </th>
+                <td>present</td>
+                <td>present</td>                
+            </tr>            
+
+            <tr> <th bgcolor="sky blue">tuesday</th>                
+                <td>present</td>
+                <td>present</td>
+            </tr>
+
+            <tr> <th bgcolor=" yellow">wednesday</th>                
+                <td>present</td>
+                <td>present</td>
+            </tr>            
+        </table>
+
+        <h2>Form</h2>
+        <form>
+            <p> Username:
+                <input type="text" name= "username" size="15" maxlength="30"/><br/>
+            
+            </p>
+            <p>
+                password:
+                <input type="password" password= "password" size="15" maxlength="30"/>
+            </p>
+            <p> Gender:
+                Male: <input type = "radio" name = "Gender" value = "Male">
+                Female: <input type = "radio" name = "Gender" value = "Female">
+            </p>
+            <p> Select your Country <br>
+                <Select name = "Country">
+                    <option value = "Pakistan">Pakistan </option>
+                    <option value = "America">America </option>
+                    <option value = "UAE">UAE </option>
+                    <option value = "Nepal">Nepal </option>
+                </Select>
+            </p>
+            <p> Upload ur file <br>
+                <input type= "file"/>
+
+            </p>
+            <p>Submit ur respone
+                <button type = "submit">Submit</button>
+            </p>
+        </form>
+
+
+    </body>
+
 </html>
