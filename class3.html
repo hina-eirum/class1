@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title> CSV</title>
+    </head>
+    <body>
+      <img src="image.png" width="160" height="80" ><br>
+        <div>
+            <form id="csvForm">
+                <input type= "file" name = "CSV" id="csv">
+                <button type= "submit"> Submit File</button>
+            </form>
+            <table id="ITEMS" border=1px>
+                <thead>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Store</th>
+                </thead>
+                <tbody id="ITEMS BODY">
+
+                </tbody>
+            </table>
+        </div>
+        <script type= "text/javascript">
+        getElementbyid("csvForm").onsubmit=function(i) {
+            i.preventdefault();
+            var csvfile=i.target.csv.file[0]
+            var reader = new FileReader();
+			reader.readAsText(csvFile);
+			reader.onload = function(a) {
+                var jsonData=csvToJson(a.target.result)
+                console.log(jsonData)
+                jsonData=JSON.parse(jsonData)
+                var row=" " ;
+                jsonData.forEach(function(item,index){
+                //    consolelog(item.Name);
+                });
+                document.getElementById("ITEMS BODY").innerHTML=(row)
+            }
+
+        }
+        function csvToJson(csvString){
+			var result = [];
+			var lines = csvString.split('\n');
+			var headings = lines[0].split(',')
+			console.log(headings)
+			for(var i = 1; i < lines.length; i++){
+				var obj = {};
+				var record = lines[i].split(',');
+				for(var j = 0; j<record.length;j++){
+					obj[headings[j]] = record[j];
+				}
+				result.push(obj)
+			}
+		}
+        </script>
+    </body>
+</html>
