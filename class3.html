@@ -1,3 +1,4 @@
+  
 <html>
     <head>
         <title> CSV</title>
@@ -15,26 +16,27 @@
                     <th>Quantity</th>
                     <th>Store</th>
                 </thead>
-                <tbody id="ITEMS BODY">
+                <tbody id="items_body">
 
                 </tbody>
             </table>
         </div>
         <script type= "text/javascript">
-        getElementbyid("csvForm").onsubmit=function(i) {
-            i.preventdefault();
-            var csvfile=i.target.csv.file[0]
+        document.getElementById("csvForm").onsubmit=function(i) {
+            i.preventDefault();
+            var csvfile =i.target.csv.files[0]
             var reader = new FileReader();
-			reader.readAsText(csvFile);
+			reader.readAsText(csvfile);
 			reader.onload = function(a) {
                 var jsonData=csvToJson(a.target.result)
                 console.log(jsonData)
                 jsonData=JSON.parse(jsonData)
-                var row=" " ;
+                var row="" ;
                 jsonData.forEach(function(item,index){
                 //    consolelog(item.Name);
+                    row += '<tr><td>'+item.Product_code+'</td><td>'+item.Product_name+'</td><td>'+item.Product_price+'</td><td><img src="'+item.Product_img+'" width="200px" height="200px"></td></tr>';
                 });
-                document.getElementById("ITEMS BODY").innerHTML=(row)
+                document.getElementById("items_body").innerHTML=(row)
             }
 
         }
@@ -51,6 +53,7 @@
 				}
 				result.push(obj)
 			}
+            return JSON.stringify(result).replace(/\\r/g,'');;
 		}
         </script>
     </body>
